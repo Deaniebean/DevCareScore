@@ -31,10 +31,11 @@ cd devcarescore
 npm install
 ```
 ### 3. Create an *.env* file with your GitHub token, the owner of the repository you are analyzing and the name of the repository
-`GITHUB_TOKEN=insert_token
+```bash
+GITHUB_TOKEN=insert_token
 OWNER=insert_repo_owner
 REPO=insert_repo_name
-`
+```
 ⚠️ You need a GitHub personal access token with public_repo access. This can easily be generated in your GitHub profile under settings/Developer Settings/Personal Access tokens
 
 ## ▶️ Run the Script
