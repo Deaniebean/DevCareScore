@@ -2,7 +2,6 @@
 
 **DevCareScore** is a Node.js script that evaluates the *community support health* of an open source GitHub repository based on real metrics like issue resolution and contributor activity.
 
----
 
 ## 🔍 What It Measures
 
@@ -17,7 +16,7 @@ This script uses the GitHub REST API to calculate:
 - **Contributor Count (CC):**  
   Number of people who contributed code in the last 12 months – shows project activity.
 
----
+
 
 ## 🚀 Getting Started
 
