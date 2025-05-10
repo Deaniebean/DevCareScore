@@ -8,7 +8,8 @@
 This script uses the GitHub REST API to calculate:
 
 - **Issue Resolution Rate (IRR):**  
-  Ratio of closed to total issues – indicates how responsive maintainers are.
+  Ratio of closed to total issues – indicates how responsive maintainers are. To not hit request rate limits but also to evaluate the current activity levels (maintenance 
+  53 years ago is not relevant for someone who wants to a lib today), the most recent 500 issues are fetched and then based on these IRR is calculated. The score is a percent value, the higher the percentage the better.
 
 - **Median Issue Resolution Time (MIRT):**  
   Measures how long it takes for issues to be resolved – lower is better.
