@@ -5,7 +5,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-console.log("Loaded token:", GITHUB_TOKEN);
 const OWNER = process.env.OWNER;
 const REPO = process.env.REPO;
 
