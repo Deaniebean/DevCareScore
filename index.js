@@ -46,32 +46,37 @@ async function fetchLatestIssues(perPage = 100, maxPages = 5) {
 
 async function fetchContributors() {
     try {
-      let contributors = [];
-      let page = 1;
-      const perPage = 100; // Max allowed by GitHub API
+      // Make a request with per_page=1 to get the total number of pages
+      const res = await axios.get(`https://api.github.com/repos/${OWNER}/${REPO}/contributors`, {
+        headers,
+        params: {
+          per_page: 1,
+          anon: true, // Include anonymous contributors
+        },
+      });
   
-      while (true) {
-        const res = await axios.get(`https://api.github.com/repos/${OWNER}/${REPO}/contributors`, {
-          headers,
-          params: {
-            per_page: perPage,
-            page,
-          },
-        });
+      // Log the entire Link header for debugging
+      console.log('Link Header:', res.headers.link);
   
-        contributors = contributors.concat(res.data);
-  
-        if (res.data.length < perPage) break; // Break if fewer items than expected
-        page++;
+      // Extract the 'Link' header to find the total number of pages
+      const linkHeader = res.headers.link;
+      if (linkHeader) {
+        const lastPageMatch = linkHeader.match(/page=(\d+)>; rel="last"/);
+        if (lastPageMatch) {
+          const totalContributors = parseInt(lastPageMatch[1], 10);
+          console.log(`Total contributors from Link header: ${totalContributors}`);
+          return totalContributors;
+        }
       }
   
-      return contributors.length;
+      // Fallback: If the 'Link' header is not present, return the length of the data
+      console.log('Fallback: Using data length as total contributors');
+      return res.data.length;
     } catch (error) {
       console.error('Error fetching contributors:', error.message);
       return 0;
     }
   }
-  
 
 async function main() {
     try {  
