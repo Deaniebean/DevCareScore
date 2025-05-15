@@ -1,7 +1,13 @@
 # 📊 DevCareScore
 
 **DevCareScore** is a Node.js script that evaluates the *community support health* of an open source GitHub repository based on real metrics like issue resolution and contributor activity.
+Community Support is something important but somehow also not easy to define measure. This script attempts to capture some measureable aspects of community support by focusing on the questions.: 
+- if a user encounters a problem today, how quickly can they expect a response, how likely is it that their issue will be resolved?
+- How large is the community?
 
+The script is based solely on the GitHub repositories of the projects/libraries. Keep in mind that there may be other, more active support channels, so take these metrics with a grain of salt.
+
+This might also be interesting for repository owners — feel free to test your own applications! A well-maintained repository with fast response times and high issue resolution rates is generally always a good sign. 
 
 ## 🔍 What It Measures
 
