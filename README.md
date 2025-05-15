@@ -21,7 +21,9 @@ This script uses the GitHub REST API to calculate:
   Measures how long it takes for issues to be resolved – lower is better.
 
 - **Contributor Count (CC):**  
-  Number of people who contributed code in the last 12 months – shows project activity.
+  Number of people who contributed code – shows project activity. 
+
+  (Note: The contributor count from the GitHub API may differ slightly from the number shown on the repository's web page because the API includes both authenticated and anonymous contributors, and contributors using multiple email addresses may be counted more than once.)
 
 
 
